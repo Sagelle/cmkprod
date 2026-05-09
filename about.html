@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="About CMK Music Productions — our story, our team, and our vision for African and global sound.">
+        <meta name="author" content="CMK Music Productions">
+
+        <title>About | CMK Productions</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/templatemo-tiya-golf-club.css" rel="stylesheet">
+    </head>
+
+    <body class="page-inner">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg navbar-inner">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <span class="navbar-brand-text">
+                            CMK
+                            <small>Music Productions</small>
+                        </span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-3">
+                        <a class="btn custom-btn custom-border-btn" href="#" onclick="openMemberLogin(event)">Member Login</a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+                            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+
+                        <div class="d-none d-lg-block ms-lg-3">
+                            <a class="btn custom-btn custom-border-btn" href="#" onclick="openMemberLogin(event)">Member Login</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- MEMBER LOGIN MODAL -->
+            <div id="memberLoginOverlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(10,10,20,0.75); backdrop-filter:blur(6px); align-items:center; justify-content:center;">
+                <div id="memberLoginModal" style="background:linear-gradient(145deg,#1a1c2e,#2a2d45); border:1px solid rgba(129,178,154,0.3); border-radius:20px; padding:0; width:90%; max-width:420px; box-shadow:0 30px 80px rgba(0,0,0,0.6); overflow:hidden; transform:translateY(30px); opacity:0; transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+                    <div style="background:linear-gradient(135deg,#3D405B,#2a2d45); padding:30px 32px 24px; position:relative; border-bottom:1px solid rgba(129,178,154,0.2);">
+                        <button onclick="closeMemberLogin()" style="position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.1); border:none; color:#fff; width:32px; height:32px; border-radius:50%; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>
+                        <div style="display:flex; align-items:center; gap:12px;">
+                            <div style="width:42px; height:42px; background:linear-gradient(135deg,#81B29A,#5a9478); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:18px;">🎵</div>
+                            <div>
+                                <h5 style="color:#fff; margin:0; font-family:'DM Sans',sans-serif; font-weight:700; font-size:1.1rem;">CMK Member Portal</h5>
+                                <p style="color:rgba(255,255,255,0.5); margin:0; font-size:0.8rem;">Sign in to your account</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:flex; background:#141627; border-bottom:1px solid rgba(129,178,154,0.15);">
+                        <button id="tabLogin" onclick="switchTab('login')" style="flex:1; padding:14px; background:none; border:none; color:#81B29A; font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer; border-bottom:2px solid #81B29A;">Sign In</button>
+                        <button id="tabRegister" onclick="switchTab('register')" style="flex:1; padding:14px; background:none; border:none; color:rgba(255,255,255,0.4); font-family:'DM Sans',sans-serif; font-weight:600; font-size:0.9rem; cursor:pointer; border-bottom:2px solid transparent;">Join CMK</button>
+                    </div>
+                    <div id="formLogin" style="padding:28px 32px;">
+                        <div style="margin-bottom:18px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; display:block; margin-bottom:6px;">EMAIL ADDRESS</label>
+                            <input type="email" placeholder="yourname@email.com" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-size:0.9rem; outline:none; box-sizing:border-box;">
+                        </div>
+                        <div style="margin-bottom:10px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; display:block; margin-bottom:6px;">PASSWORD</label>
+                            <input type="password" id="loginPwd" placeholder="••••••••" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-size:0.9rem; outline:none; box-sizing:border-box;">
+                        </div>
+                        <div style="text-align:right; margin-bottom:22px;">
+                            <a href="#" style="color:#81B29A; font-size:0.8rem; text-decoration:none;">Forgot password?</a>
+                        </div>
+                        <button onclick="handleLogin()" style="width:100%; padding:14px; background:linear-gradient(135deg,#81B29A,#5a9478); border:none; border-radius:10px; color:#fff; font-weight:700; font-size:1rem; cursor:pointer; letter-spacing:0.5px;">Sign In →</button>
+                        <div id="loginMsg" style="margin-top:14px; text-align:center; font-size:0.85rem; min-height:20px; color:rgba(255,255,255,0.5);">Don't have an account? <a href="dashboard.html" style="color:#81B29A;">Join CMK →</a></div>
+                    </div>
+                    <div id="formRegister" style="padding:28px 32px; display:none;">
+                        <div style="margin-bottom:16px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; display:block; margin-bottom:6px;">FULL NAME</label>
+                            <input type="text" placeholder="Your full name" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-size:0.9rem; outline:none; box-sizing:border-box;">
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; display:block; margin-bottom:6px;">EMAIL ADDRESS</label>
+                            <input type="email" placeholder="yourname@email.com" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-size:0.9rem; outline:none; box-sizing:border-box;">
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; display:block; margin-bottom:6px;">YOUR ROLE</label>
+                            <select style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:rgba(255,255,255,0.7); font-size:0.9rem; outline:none; box-sizing:border-box;">
+                                <option value="" style="background:#2a2d45;">Select your role...</option>
+                                <option value="artist" style="background:#2a2d45;">🎤 Artist</option>
+                                <option value="producer" style="background:#2a2d45;">🎛 Producer</option>
+                                <option value="fan" style="background:#2a2d45;">🎶 Fan / Supporter</option>
+                                <option value="brand" style="background:#2a2d45;">🏢 Brand / Partner</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom:22px;">
+                            <label style="color:rgba(255,255,255,0.6); font-size:0.8rem; display:block; margin-bottom:6px;">CREATE PASSWORD</label>
+                            <input type="password" id="regPwd" placeholder="Min. 8 characters" style="width:100%; padding:12px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; color:#fff; font-size:0.9rem; outline:none; box-sizing:border-box;">
+                        </div>
+                        <button style="width:100%; padding:14px; background:linear-gradient(135deg,#81B29A,#5a9478); border:none; border-radius:10px; color:#fff; font-weight:700; font-size:1rem; cursor:pointer; letter-spacing:0.5px;">Join the Family →</button>
+                        <p style="color:rgba(255,255,255,0.3); font-size:0.75rem; text-align:center; margin-top:14px;">By joining you agree to CMK's terms &amp; privacy policy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE HEADER -->
+            <section class="page-header">
+                <div class="container">
+                    <div class="page-header-inner text-center">
+                        <span class="page-header-eyebrow">Our Story</span>
+                        <h1 class="page-header-title">About CMK</h1>
+                        <p class="page-header-sub">Music is more than sound — it's a story, a heartbeat, a bridge between people.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-12 me-auto mb-5 mb-lg-0">
+                            <h3 class="mb-3">CMK Music Production</h3>
+
+                            <p>At <strong>CMK Music Production</strong>, we believe music is more than sound — it&rsquo;s a story, a heartbeat, and a bridge between people. Founded by passionate producers and sound engineers, CMK is built on the vision of elevating African and global sound through creativity, precision, and authenticity.</p>
+
+                            <p>From intimate studio sessions to large-scale productions, CMK specializes in music production, recording, mixing &amp; mastering, live sound design, and artist development. Our focus is to turn every concept into a sonic experience that speaks to the soul and resonates with audiences worldwide.</p>
+
+                            <p>Our team has worked with emerging and established artists, crafting signature sounds across genres — from hip-hop, R&amp;B, and gospel, to amapiano and Afro-fusion. Whether you&rsquo;re a solo artist looking to record your next hit, or a brand in need of cinematic sound for your next campaign, CMK is your creative partner in sound.</p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="images/4.png" class="member-block-image img-fluid" alt="Cedric, Founder of CMK">
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Cedric</h4>
+                                    <p class="ms-auto">Founder</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="member-block">
+                                <div class="member-block-image-wrap">
+                                    <img src="images/1.png" class="member-block-image img-fluid" alt="Myriame, CMK Artist">
+                                    <ul class="social-icon">
+                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-linkedin"></a></li>
+                                        <li class="social-icon-item"><a href="#" class="social-icon-link bi-twitter"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="member-block-info d-flex align-items-center">
+                                    <h4>Myriame</h4>
+                                    <p class="ms-auto">Artist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-bg-image">
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z"></path></svg>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="section-bg-image-block">
+                                <h2 class="mb-lg-3">We are the best in the business.</h2>
+                                <p>From studio to stage, we make your music stand out. Producing tomorrow&rsquo;s sound today. Join the movement today.</p>
+                                <a href="membership.html" class="btn custom-btn mt-3">Join the Family</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <svg viewBox="0 0 1265 144" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,1)" d="M 0 40 C 164 40 164 20 328 20 L 328 20 L 328 0 L 0 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 327 20 C 445.5 20 445.5 89 564 89 L 564 89 L 564 0 L 327 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 563 89 C 724.5 89 724.5 48 886 48 L 886 48 L 886 0 L 563 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 885 48 C 1006.5 48 1006.5 67 1128 67 L 1128 67 L 1128 0 L 885 0 Z"></path><path fill="rgba(255,255,255,1)" d="M 1127 67 C 1196 67 1196 0 1265 0 L 1265 0 L 1265 0 L 1127 0 Z"></path></svg>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-12 me-auto mb-5 mb-lg-0">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
+                            <img src="images/cmk logo.png" class="navbar-brand-image img-fluid" alt="CMK Productions logo">
+                            <span class="navbar-brand-text">
+                                CMK
+                                <small>Music Productions</small>
+                            </span>
+                        </a>
+                        <p class="footer-tagline mt-3">Crafting the sound of tomorrow — from intimate studio sessions to stadium-scale productions.</p>
+                    </div>
+
+                    <div class="col-lg-3 col-12">
+                        <h5 class="site-footer-title mb-4">Studio Hours</h5>
+                        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3"><span>Mon&ndash;Fri</span> 6:00 AM &ndash; 6:00 PM</p>
+                        <p class="d-flex me-lg-3"><span>Sat&ndash;Sun</span> 6:30 AM &ndash; 8:30 PM</p>
+                        <br>
+                        <p class="copyright-text">© 2026 CMK Music Productions</p>
+                    </div>
+
+                    <div class="col-lg-2 col-12 ms-auto">
+                        <ul class="social-icon mt-lg-5 mt-3 mb-4">
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                        </ul>
+                        <p class="copyright-text">Design: <a rel="nofollow" href="https://mdkfastprint.com" target="_blank">MDK Fast Print</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81B29A" fill-opacity="1" d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </footer>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script>
+            function openMemberLogin(e) {
+                e.preventDefault();
+                var overlay = document.getElementById('memberLoginOverlay');
+                var modal = document.getElementById('memberLoginModal');
+                overlay.style.display = 'flex';
+                setTimeout(function() {
+                    modal.style.transform = 'translateY(0)';
+                    modal.style.opacity = '1';
+                }, 10);
+            }
+            function closeMemberLogin() {
+                var overlay = document.getElementById('memberLoginOverlay');
+                var modal = document.getElementById('memberLoginModal');
+                modal.style.transform = 'translateY(30px)';
+                modal.style.opacity = '0';
+                setTimeout(function() { overlay.style.display = 'none'; }, 350);
+            }
+            document.getElementById('memberLoginOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeMemberLogin();
+            });
+            function switchTab(tab) {
+                var isLogin = tab === 'login';
+                document.getElementById('formLogin').style.display = isLogin ? 'block' : 'none';
+                document.getElementById('formRegister').style.display = isLogin ? 'none' : 'block';
+                document.getElementById('tabLogin').style.color = isLogin ? '#81B29A' : 'rgba(255,255,255,0.4)';
+                document.getElementById('tabLogin').style.borderBottomColor = isLogin ? '#81B29A' : 'transparent';
+                document.getElementById('tabRegister').style.color = isLogin ? 'rgba(255,255,255,0.4)' : '#81B29A';
+                document.getElementById('tabRegister').style.borderBottomColor = isLogin ? 'transparent' : '#81B29A';
+            }
+            function handleLogin() {
+                var msg = document.getElementById('loginMsg');
+                msg.style.color = '#81B29A';
+                msg.textContent = '✓ Redirecting to your dashboard...';
+                setTimeout(function() { window.location.href = 'dashboard.html'; }, 900);
+            }
+        </script>
+    </body>
+</html>
